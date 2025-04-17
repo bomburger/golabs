@@ -38,7 +38,7 @@ func ConsistsOf(s string, words []string) bool {
 	return false
 }
 
-func main() {
+func RunA() {
 	var line string
 	var n int
 	var words []string

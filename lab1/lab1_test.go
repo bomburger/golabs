@@ -1,8 +1,6 @@
 package main
 
-import (
-	"testing"
-)
+import "testing"
 
 func TestA(t *testing.T) {
 	cases := []struct {
@@ -19,7 +17,28 @@ func TestA(t *testing.T) {
 	for i, tc := range cases {
 		result := ConsistsOf(tc.line, tc.words)
 		if result != tc.expected {
-			t.Errorf("CASE %d:expected %t, got %t\n", i, tc.expected, result)
+			t.Errorf("CASE %d: expected %t, got %t\n", i, tc.expected, result)
+		} else {
+			t.Logf("CASE %d: PASSED\n", i)
+		}
+	}
+}
+
+func TestB(t *testing.T) {
+	cases := []struct {
+		line1 string
+		line2 string
+		expected bool
+	}{
+		{"IloveGo", "IhateGo", false},
+		{"debitcard", "badcredit", true},
+		{"abab", "aabbc", false},
+	}
+
+	for i, tc := range cases {
+		result := IsAnagram(tc.line1, tc.line2)
+		if result != tc.expected {
+			t.Errorf("CASE %d: expected %t, got %t\n", i, tc.expected, result)
 		} else {
 			t.Logf("CASE %d: PASSED\n", i)
 		}
