@@ -43,7 +43,3 @@ func RunB() {
 		fmt.Println("NO")
 	}
 }
-
-func main() {
-	RunB()
-}
