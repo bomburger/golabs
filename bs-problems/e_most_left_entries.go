@@ -2,8 +2,8 @@ package main
 
 import "fmt"
 
-// finds target in sorted array
-// returns index or -1
+// finds the first occurance of target in sorted array
+// returns index or -1 if target is not in array
 func LeftFind(nums_sorted []int, target int) int {
 	var left, right int
 	left = 0
