@@ -17,10 +17,16 @@ func RightFind(nums_sorted []int, target int) int {
 		} else if mid_n < target {
 			left = mid + 1	
 		} else {
+/*			
 			for i := mid + 1; i < len(nums_sorted); i++ {
 				if nums_sorted[i] != target { return i - 1 }
 			}
 			return len(nums_sorted) - 1
+*/
+			if mid < len(nums_sorted) - 1 && nums_sorted[mid + 1] != mid_n {
+				return mid
+			}
+			left = mid + 1
 		}
 	}
 	return -1

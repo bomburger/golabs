@@ -16,10 +16,16 @@ func LeftFind(nums_sorted []int, target int) int {
 		} else if mid_n < target {
 			left = mid + 1	
 		} else {
+/*
 			for i := mid - 1; i >= 0; i-- {
 				if nums_sorted[i] != target { return i + 1 }
 			}
 			return 0
+*/
+			if mid > 0 && nums_sorted[mid - 1] != mid_n {
+				return mid
+			}
+			right = mid - 1
 		}
 	}
 	return -1
