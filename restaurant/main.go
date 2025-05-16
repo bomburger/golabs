@@ -27,18 +27,14 @@ func NewCook(name string) Cook {
 	return c
 }
 
-var mu = sync.Mutex{}
-
 func cook(dish string, cooks chan Cook, wg *sync.WaitGroup) {
 	defer wg.Done()
 	cook := <- cooks
 	cookDuration := dishes[dish]
 	time.Sleep(time.Duration(cookDuration) * time.Second)
 
-	mu.Lock()
 	cook.CookingTime += cookDuration;
 	cook.DishesCooked += 1
-	mu.Unlock()
 
 	fmt.Println("dish ", dish, " is cooked by ", cook.Name)
 	cooks <- cook
